@@ -1,1 +1,3 @@
-console.log('\'Allo \'Allo!');
+$('#openMenu').on('click', function(){
+	alert('openmenu');
+});

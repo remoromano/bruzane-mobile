@@ -2,6 +2,41 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "_webicons.scss";
+
+// Fonts
+@font-face {
+  font-family: 'Akkurat';
+    src: url('fonts/Akkurat.eot');
+    src: url('fonts/Akkurat.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Akkurat.woff') format('woff'),
+         url('fonts/Akkurat.ttf') format('truetype'),
+         url('fonts/Akkurat.svg#Akkurat') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'Akkurat-Bold';
+    src: url('fonts/Akkurat-Bold.eot');
+    src: url('fonts/Akkurat-Bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Akkurat-Bold.woff') format('woff'),
+         url('fonts/Akkurat-Bold.ttf') format('truetype'),
+         url('fonts/Akkurat-Bold.svg#Akkurat-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+// Misure elementi
+$page:        360px;
+$blockSpacer: 15px;
+
+// Colori
+$rosso:       #990331;
+$grigio:      #706f6f;
+$grigio_bg:   #e5e5e5;
+$beige:       #bdb0a8;
+
 
 .browsehappy {
   margin: 0.2em 0;
@@ -10,13 +45,26 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: #e6e6e6; /* tmp */
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
+.page {
+  width: $page;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 4px #bbb;
+}
+
+.noPadding-r {  padding-right: 0; border-right: solid $blockSpacer/2 #fff; }
+.noPadding-l {   padding-left: 0;  border-left: solid $blockSpacer/2 #fff; }
+
+/*************************************************************************
+* Header
+*/
+
+
 .header,
 .marketing,
 .footer {
@@ -24,45 +72,185 @@ body {
   padding-right: 15px;
 }
 
-/* Custom page header */
 .header {
+  position: relative;
+  height: 125px;
+  padding: 10px 0 0 0;
+  margin: 0 0 $blockSpacer*2 0;
+  background: url("../images/bg_header.jpg") top left no-repeat;
+
   border-bottom: 1px solid #e5e5e5;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  a, a:hover { color: #fff; }
+
+  .logo {
+    display: inline-block;
+    width: 50px;
+    height: 0;
+    padding-top: 100px;
+
+    background: url("../images/logo_bruzane.png") top left no-repeat;
+    background-size: auto 100px;
+
+    overflow: hidden;
+  }
+
+  .support {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 0;
+    padding-top: 48px;
+
+    background: url("../images/logo_fondationbru.gif") top right no-repeat;
+    background-size: 50px auto;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+
+    overflow: hidden;
+  }
+
+  #openMenu {
+    position: relative;
+    float: right;
+    width: 22px;
+    height: 24px;
+    padding: 0 14px 0;
+
+    border-top:    3px solid #fff;
+    border-bottom: 3px solid #fff;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+
+    background-color: transparent;
+
+    text-indent: -9999px;
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 28px;
+      height: 3px;
+      background-color: #fff;
+    }
   }
 }
 
-/* Custom page footer */
+/* Footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
+  padding: 15px;
+  margin-top: 15px;
   border-top: 1px solid #e5e5e5;
+
+  background-color: $beige;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+
+  address, .legal { text-shadow: 0px 1px 3px #666666; }
+  strong { color: $rosso; text-shadow: none; }
+  .glyphicon-phone-alt { font-size: 0.65rem; }
+  a { color: #fff; }
+  .socials a { margin-right: 10px; }
 }
 
 .container-narrow > hr {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+/* Home boxes */
+.homeFocus {
+  position: relative;
+  height: 150px;
+  margin-bottom: $blockSpacer;
+  color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../images/focus_overlay.png") repeat-x;
+    background-size: contain;
   }
+
+  .titleWrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      color: white;
+      font-family: 'Akkurat-Bold', Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  a.focusLink {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    text-indent: -10000px;
+    z-index: 10;
+  }
+
+
+
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
+.internalLink {
+
+  .internalLinkBox {
+    margin-bottom: $blockSpacer;
+
+    .container { background-color: $grigio_bg; }
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding-right: 25px;
+      color: $grigio;
+      &:hover { text-decoration: none; }
+
+      h4 {
+        margin-top: 12px;
+        font-family: 'Akkurat-Bold', Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        color: $rosso;
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -11px;
+
+        color: $rosso;
+        font-size: 22px;
+      }
+
+
+    }
   }
 }
 
