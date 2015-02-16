@@ -1,3 +1,4 @@
-$('#openMenu').on('click', function(){
-	alert('openmenu');
+// Open-Close menu
+$('#openMenu, #closeMenu').on('click', function(){
+	$("#menuPanel").slideToggle();
 });
