@@ -47,6 +47,7 @@ $beige:       #bdb0a8;
 
 
 body {
+  font-size: 14px;
   background-color: #e6e6e6; /* tmp */
 }
 
@@ -56,16 +57,17 @@ body {
   margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 0 4px #bbb;
+
+  .container { width: $page; }
 }
 
 .noPadding-r {  padding-right: 0; border-right: solid $blockSpacer/2 #fff; }
 .noPadding-l {   padding-left: 0;  border-left: solid $blockSpacer/2 #fff; }
 
+
 /*************************************************************************
-* Header
-*/
-
-
+* Header e Footer
+**************************************************************************/
 .header,
 .marketing,
 .footer {
@@ -222,11 +224,32 @@ body {
       }
     }
   }
+
+  .navLang {
+
+    ul {
+      margin-top: 25px;
+      list-style: none; 
+
+      li {
+        display: inline-block;
+        margin-right: 25px;
+
+        a {
+          color: #fff;
+
+          &.selected { color: $rosso; }
+        }
+      }
+    }
+  }
 }
 
 
 
-
+/*************************************************************************
+* Home page
+**************************************************************************/
 
 .container-narrow > hr {
   margin: 30px 0;
@@ -280,9 +303,6 @@ body {
     text-indent: -10000px;
     z-index: 10;
   }
-
-
-
 }
 
 .internalLink {
@@ -315,11 +335,127 @@ body {
         color: $rosso;
         font-size: 22px;
       }
-
-
     }
   }
 }
+
+
+/*************************************************************************
+* Stile generico
+**************************************************************************/
+
+.page {
+
+  .row {
+    margin-bottom: $blockSpacer;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-family: 'Akkurat-Bold', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: $rosso;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+    font-family: 'Akkurat-Bold', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: $rosso;
+  }
+
+  q {
+    display: block;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: $grigio;
+  }
+}
+
+
+/*************************************************************************
+* Chi siamo
+**************************************************************************/
+.about {
+  .subtit {
+    font-size: 1.8rem;
+    font-family: 'Akkurat-Bold', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: $grigio;
+  }
+
+  .equipe a { color: $rosso; }
+}
+
+
+/*************************************************************************
+* Calendario
+**************************************************************************/
+
+.calendario {
+
+  .header { margin-bottom: $blockSpacer / 2; }
+
+  .dropdown {
+    margin-bottom: 15px;
+
+    button {
+      width: 100%;
+      color: #000;
+      background-color: $grigio_bg;
+
+      text-align: left;
+      font-size: 1.8rem;
+      font-family: 'Akkurat-Bold', Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    .caret {
+      float: right;
+      margin-top: 10px;
+    }
+  }
+
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  .list-group {
+    a {
+      position: relative;
+      padding-right: 30px;
+      color: $grigio;
+
+      .location {
+        display: block;
+        font-style: italic;
+      }
+
+      h4 {
+        color: $rosso;
+        font-size: 1.8rem;
+      }
+
+      .glyphicon {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        margin-top: -11px;
+        color: $rosso;
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+
+
+
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
